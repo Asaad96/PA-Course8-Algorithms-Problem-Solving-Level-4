@@ -23,9 +23,14 @@ short ReadNumber ()
 
 bool IsLeapYear (short Year)
 {
-    if( (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0))
-    return true;
-    else return false;
+    // My Method
+    // if( (Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0))
+    // return true;
+    // else return false;
+    // Intstructor Method
+    return (Year % 4 == 0 && Year % 100 != 0) || (Year % 400 ==
+0);
+
 }
 
 
