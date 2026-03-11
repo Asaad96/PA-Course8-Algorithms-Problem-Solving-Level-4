@@ -1,22 +1,32 @@
 #include "my_library.h"
 #include <iostream>
-using namespace std;
+#include <limits>
 
-int ReadNumber () 
+
+int ReadNumber (std::string Message) 
 {
     int Number;
-    //cout<< "Please Enter a number\n"<< endl;
-    cin >> Number;
+    std::cout << Message;  
+    std::cin >> Number;
 
-    while (cin.fail())
+    while (std::cin.fail())
     {
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-        cout << "Invalid Number, Enter a valid one" << endl;
-        cin >> Number;
+        std::cout << "Invalid Number, Enter a valid one \n";
+        std::cin >> Number;
     }
 
     return Number;
 }
+
+
+
+
+bool IsLeapYear (short Year)
+{
+   return (Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+
 
