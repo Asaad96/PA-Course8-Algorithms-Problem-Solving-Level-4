@@ -62,3 +62,12 @@ d = (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
     
     return d;
 }
+
+
+stDate ReadFullDate() {
+    stDate Date;
+    Date.Day = ReadNumber("Please enter a Day? ");
+    Date.Month = ReadNumber("Please enter a Month? ");
+    Date.Year = ReadNumber("Please enter a Year? ");
+    return Date;
+}
