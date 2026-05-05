@@ -71,3 +71,15 @@ stDate ReadFullDate() {
     Date.Year = ReadNumber("Please enter a Year? ");
     return Date;
 }
+
+bool IsLastMonthInTheYear (stDate Date) 
+{
+    return (Date.Month == 12);
+}
+
+bool IsLastDayInTheMonth (stDate Date)
+{  
+ return (Date.Day == NumberofDaysInMonth(Date.Month , Date.Year));
+        
+}
+
