@@ -83,3 +83,36 @@ bool IsLastDayInTheMonth (stDate Date)
         
 }
 
+bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
+{
+return (Date1.Year < Date2.Year) ? true : ((Date1.Year ==
+Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month ==
+Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+}
+
+
+ stDate increaseDateOneDay( stDate Date)
+
+{
+
+   if (IsLastDayInTheMonth(Date))
+     { 
+        if (IsLastMonthInTheYear (Date))
+        {
+            Date.Month = 1;
+            Date.Day = 1;
+            Date.Year ++ ;
+        }
+        else 
+        {
+             Date.Month++;
+             Date.Day = 1;
+        }
+     }
+   else
+    {
+        Date.Day++;
+    } 
+        return Date;
+
+}
