@@ -22,5 +22,6 @@ stDate increaseDateOneDay( stDate Date);
 bool IsLastMonthInTheYear (stDate Date);
 bool IsLastDayInTheMonth  (stDate Date);
 bool IsDate1BeforeDate2 (stDate Date1, stDate Date2);
-
+inline int  GetDifferenceInDays(stDate Date1 , stDate Date2, bool IncludeEndDay);
+inline int GetDifferenceInDaysWithSwap(stDate Date1, stDate Date2, bool IncludeEndDay);
 #endif 
