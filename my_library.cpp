@@ -64,11 +64,30 @@ d = (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
 }
 
 
+bool IsValidDate (stDate Date)
+{
+    if (Date.Month < 1 || Date.Month > 12 ) return false;
+    if (Date.Year < 1 ) return false;
+    if (Date.Day < 1 || Date.Day > NumberofDaysInMonth(Date.Month ,Date.Year) ) return false ;
+
+    return true;
+}
+
+
+
 stDate ReadFullDate() {
     stDate Date;
+
+    do {
+
     Date.Day = ReadNumber("Please enter a Day? ");
     Date.Month = ReadNumber("Please enter a Month? ");
     Date.Year = ReadNumber("Please enter a Year? ");
+    if(!IsValidDate(Date))
+            { 
+                std::cout << "\nEnter a valid Date, This Date Does Not Exist in The Calendar! \n"; }
+                }
+    while (!IsValidDate(Date));
     return Date;
 }
 
@@ -150,9 +169,8 @@ void SwapDates (stDate& Date1 , stDate& Date2)
     Date2.Month = TempDate.Month;
     Date2.Day = TempDate.Day;
 
-
-
 }
+
 
 int GetDifferenceInDaysWithSwap(stDate Date1 , stDate Date2 , bool IncludeEndDay = false )
 {
