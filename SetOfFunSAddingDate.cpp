@@ -130,7 +130,22 @@ stDate increaseDatebyXDecade(short XDecade,stDate Date)
 return Date;
 }
 
-    
+stDate increaseDatebyOneCentury(stDate Date)
+{
+
+  Date.Year += 100;
+  return Date;
+
+}
+
+stDate increaseDatebyOneMillennium(stDate Date)
+{
+    Date.Year += 1000;
+    return Date;
+
+}
+
+
 int main ()
 {
         
@@ -163,5 +178,10 @@ stDate NewDate9 = increaseDatebyOneDecade(NewDate8);
 cout << "\n09-Adding " << NewDate9.Day << "." << NewDate9.Month << "." << NewDate9.Year;
 short XDecade = ReadNumber("\nHow Many Decades?\t");
 stDate NewDate10 = increaseDatebyXDecade(XDecade, NewDate9);
-cout << "\n10-Adding " << XDecade << " Decades " <<NewDate10.Day << "." << NewDate10.Month << "." << NewDate10.Year ; 
+cout << "\n10-Adding " << XDecade << " Decades " <<NewDate10.Day << "." << NewDate10.Month << "." << NewDate10.Year ;
+NewDate10 = increaseDatebyOneCentury(NewDate10); 
+cout << "\n11-Adding one Century "<< NewDate10.Day << "." << NewDate10.Month << "." << NewDate10.Year ;
+
+NewDate10 = increaseDatebyOneMillennium(NewDate10);
+cout << "\n12-Adding one Millennium " << NewDate10.Day << "." << NewDate10.Month << "." << NewDate10.Year ;
     return 0; }
