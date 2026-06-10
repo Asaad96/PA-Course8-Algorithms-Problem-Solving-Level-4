@@ -102,6 +102,21 @@ bool IsLastDayInTheMonth (stDate Date)
         
 }
 
+bool IsFirstMonthInTheYear(stDate Date)
+{
+    return (Date.Month == 1);
+}
+
+bool IsFirstDayInTheMonth(stDate Date)
+{
+
+    return (Date.Day == 1 );
+
+}
+
+
+
+
 bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
 {
 return (Date1.Year < Date2.Year) ? true : ((Date1.Year ==
@@ -110,7 +125,7 @@ Date2.Month ? Date1.Day < Date2.Day : false)) : false);
 }
 
 
- stDate increaseDateOneDay( stDate Date)
+stDate increaseDateOneDay(stDate Date)
 
 {
 
@@ -134,6 +149,30 @@ Date2.Month ? Date1.Day < Date2.Day : false)) : false);
     } 
         return Date;
 
+}
+
+stDate DecreaseDateOneDay(stDate Date)
+{
+    if(IsFirstDayInTheMonth(Date))
+    {
+        if(IsFirstMonthInTheYear(Date))
+        { 
+            Date.Month = 12;
+            Date.Day = 31;
+            Date.Year--;
+        }
+        else 
+        {
+            Date.Month --;
+            Date.Day = NumberofDaysInMonth(Date.Month, Date.Year);
+        }
+    }
+    else 
+    { 
+        Date.Day --;
+    }
+            
+return Date;
 }
 
 
