@@ -20,7 +20,11 @@ stDate DecreaseDateByXDay(stDate Date, short XDay)
     return Date;
 }
 
-
+stDate DecreaseDateOneWeek(stDate Date)
+{
+     Date = DecreaseDateByXDay(Date , 7);
+     return Date;
+}
 
 int main ()
 {
@@ -30,6 +34,11 @@ int main ()
   cout << "\nDecreasing Date One Day\t"<< Date.Day << "." << Date.Month << "." << Date.Year;
 Date = DecreaseDateByXDay(Date, XDay);
 cout << "\nDecreasing Date " << XDay << " Days "<< Date.Day << "." << Date.Month << "." << Date.Year;
+Date = DecreaseDateOneWeek(Date);
+cout << "\nDecreasing Date by One Week "<< Date.Day << "." << Date.Month << "." << Date.Year ;
+
+
+
 return 0;
 }
 
