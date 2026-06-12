@@ -26,6 +26,32 @@ stDate DecreaseDateOneWeek(stDate Date)
      return Date;
 }
 
+stDate DecreaseDateByXWeek(stDate Date, short Xweek)
+{
+
+    if(Xweek == 0)
+    return Date;
+
+for(short i = 0 ;  i < Xweek ; i++ )
+    {
+        Date = DecreaseDateOneWeek(Date);
+    }
+
+return Date;
+}
+
+
+
+stDate DecreaseDateOneMonth(stDate Date)
+
+{
+    Date.Month -= 1;
+    return Date;
+
+
+}
+
+
 int main ()
 {
     stDate Date = ReadFullDate();
@@ -36,9 +62,11 @@ Date = DecreaseDateByXDay(Date, XDay);
 cout << "\nDecreasing Date " << XDay << " Days "<< Date.Day << "." << Date.Month << "." << Date.Year;
 Date = DecreaseDateOneWeek(Date);
 cout << "\nDecreasing Date by One Week "<< Date.Day << "." << Date.Month << "." << Date.Year ;
-
-
-
+short Xweek = ReadNumber("\nHow Many Weeks?\t");
+Date = DecreaseDateByXWeek(Date, Xweek);
+cout << "\nDecreasing Date by " << Xweek << " Week(s) " << Date.Day << "." << Date.Month << "." << Date.Year ; 
+Date = DecreaseDateOneMonth(Date);
+cout << "\nDecreasing by One Month " << Date.Day << "." << Date.Month << "." << Date.Year ;
 return 0;
 }
 
