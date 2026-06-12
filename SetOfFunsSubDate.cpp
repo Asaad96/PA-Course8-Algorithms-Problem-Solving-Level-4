@@ -89,6 +89,12 @@ stDate DecreaseDateByXYear(stDate Date , short Xyear)
 
 }
 
+stDate DecreaseDateByXYearFaster(stDate Date, short Xyear)
+{
+ Date.Year -= Xyear;
+ return Date;
+}
+
 int main ()
 {
     stDate Date = ReadFullDate();
@@ -112,6 +118,8 @@ cout << "\nDecreasing Date by One Year "<< Date.Day << "." << Date.Month << "." 
 short Xyear = ReadNumber("\nHow Many years?\t"); 
 Date = DecreaseDateByXYear(Date , Xyear);
 cout << "\nDecreasing Date by " << Xyear << " Years " << Date.Day << "." << Date.Month << "." << Date.Year;
+Date = DecreaseDateByXYearFaster(Date, Xyear);
+cout << "\nDecreasing Date by " << Xyear << " Years Via Faster Func " << Date.Day << "." << Date.Month << "." << Date.Year;
 return 0;
 }
 
