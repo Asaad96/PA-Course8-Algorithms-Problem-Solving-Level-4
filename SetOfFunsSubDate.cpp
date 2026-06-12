@@ -56,6 +56,12 @@ stDate DecreaseDatebyXMonth(stDate Date, short Xmonth)
     for (short i = 0 ; i < Xmonth ; i++)
     {
         Date = DecreaseDateOneMonth(Date);
+
+        if(Date.Month < 1) 
+        {
+          Date.Month = 12;
+          Date.Year --;
+        }
     }
 
     return Date;
@@ -67,6 +73,21 @@ stDate DecreaseDateOneYear(stDate Date)
     return Date;
 }
 
+
+stDate DecreaseDateByXYear(stDate Date , short Xyear)
+{
+
+    if(Xyear == 0)
+        return Date;
+
+    for (short i = 0 ; i < Xyear ; i++)
+    {
+        Date = DecreaseDateOneYear(Date);
+    }
+
+    return Date;
+
+}
 
 int main ()
 {
@@ -88,6 +109,9 @@ Date = DecreaseDatebyXMonth(Date , Xmonth);
 cout <<"\nDecreasing Date by " << Xmonth << " Month(s) " << Date.Day << "." << Date.Month << "." << Date.Year;
 Date = DecreaseDateOneYear(Date);
 cout << "\nDecreasing Date by One Year "<< Date.Day << "." << Date.Month << "." << Date.Year ; 
+short Xyear = ReadNumber("\nHow Many years?\t"); 
+Date = DecreaseDateByXYear(Date , Xyear);
+cout << "\nDecreasing Date by " << Xyear << " Years " << Date.Day << "." << Date.Month << "." << Date.Year;
 return 0;
 }
 
