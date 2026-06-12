@@ -46,11 +46,20 @@ stDate DecreaseDateOneMonth(stDate Date)
 
 {
     Date.Month -= 1;
+    return Date;}
+
+stDate DecreaseDatebyXMonth(stDate Date, short Xmonth)
+{
+    if(Xmonth == 0)
+        return Date;
+
+    for (short i = 0 ; i < Xmonth ; i++)
+    {
+        Date = DecreaseDateOneMonth(Date);
+    }
+
     return Date;
-
-
 }
-
 
 int main ()
 {
@@ -67,6 +76,11 @@ Date = DecreaseDateByXWeek(Date, Xweek);
 cout << "\nDecreasing Date by " << Xweek << " Week(s) " << Date.Day << "." << Date.Month << "." << Date.Year ; 
 Date = DecreaseDateOneMonth(Date);
 cout << "\nDecreasing by One Month " << Date.Day << "." << Date.Month << "." << Date.Year ;
+short Xmonth = ReadNumber("\nHow Many Month?\t");
+Date = DecreaseDatebyXMonth(Date , Xmonth);
+cout <<"\nDecreasing Date by " << Xmonth << " Month(s) " << Date.Day << "." << Date.Month << "." << Date.Year;
+
+
 return 0;
 }
 
