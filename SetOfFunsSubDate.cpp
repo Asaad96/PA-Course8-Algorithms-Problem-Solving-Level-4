@@ -95,6 +95,48 @@ stDate DecreaseDateByXYearFaster(stDate Date, short Xyear)
  return Date;
 }
 
+stDate DecreaseDateOneDecade(stDate Date)
+{
+    Date.Year -= 10;
+    return Date;
+}
+
+stDate DecreaseDatebyXDecade(stDate Date, short XDecade)
+{
+
+    if(XDecade == 0)
+        return Date;
+
+    for ( short i = 0; i < XDecade ; i++)
+    {
+        Date = DecreaseDateOneDecade(Date);
+    }
+
+    return Date;
+
+}
+
+stDate DecreaseDatebyXDecadeFaster(stDate Date, short XDecade)
+{
+
+    Date.Year -= XDecade ;
+    return Date;
+}
+
+
+stDate DecreaseDateOneCentury(stDate Date)
+{
+    Date.Year -= 100; 
+    return Date ;
+}
+
+stDate DecreaseDateOneMill (stDate Date)
+{
+    Date.Year -= 1000;
+    return Date ;
+}
+
+
 int main ()
 {
     stDate Date = ReadFullDate();
@@ -120,6 +162,19 @@ Date = DecreaseDateByXYear(Date , Xyear);
 cout << "\nDecreasing Date by " << Xyear << " Years " << Date.Day << "." << Date.Month << "." << Date.Year;
 Date = DecreaseDateByXYearFaster(Date, Xyear);
 cout << "\nDecreasing Date by " << Xyear << " Years Via Faster Func " << Date.Day << "." << Date.Month << "." << Date.Year;
+
+Date = DecreaseDateOneDecade(Date);
+cout << "\nDecreasing Date by one Decade " <<  Date.Day << "." << Date.Month << "." << Date.Year;
+short XDecade = ReadNumber("\nHow Many Decades \t");
+Date = DecreaseDatebyXDecade(Date, XDecade);
+cout << "\nDecreasing Date by " << XDecade << " Decades " << Date.Day << "." << Date.Month << "." << Date.Year;
+Date = DecreaseDatebyXDecadeFaster(Date, XDecade);
+cout << "\nDecreasing Date by " << XDecade << " Decades Faster " << Date.Day << "." << Date.Month << "." << Date.Year;
+Date = DecreaseDateOneCentury(Date);
+cout << "\nDecreasing Date by one Century " <<  Date.Day << "." << Date.Month << "." << Date.Year;
+Date = DecreaseDateOneMill(Date);
+cout << "\nDecreasing Date by one Mill " <<  Date.Day << "." << Date.Month << "." << Date.Year;
+
 return 0;
 }
 
