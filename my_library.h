@@ -19,10 +19,16 @@ short DayOfWeekOrder(short Day, short Month, short Year);
 bool IsValidDate (stDate Date);
 stDate ReadFullDate();
 stDate increaseDateOneDay( stDate Date);
+stDate DecreaseDateOneDay(stDate Date);
 bool IsLastMonthInTheYear (stDate Date);
 bool IsLastDayInTheMonth  (stDate Date);
 bool IsDate1BeforeDate2 (stDate Date1, stDate Date2);
 int  GetDifferenceInDays(stDate Date1 , stDate Date2, bool IncludeEndDay);
 int GetDifferenceInDaysWithSwap(stDate Date1, stDate Date2, bool IncludeEndDay);
 void SwapDates(stDate& Date1, stDate& Date2);
+short DayOfWeekOrder(stDate Date);
+bool IsEndOfWeek(stDate Date);
+bool IsWeekEnd (stDate Date);
+bool IsBusinessDay (stDate Date);
+
 #endif 

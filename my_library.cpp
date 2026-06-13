@@ -63,6 +63,27 @@ d = (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
     return d;
 }
 
+short DayOfWeekOrder(stDate Date)
+{
+
+     return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
+ 
+}
+
+bool IsEndOfWeek(stDate Date)
+{
+    return DayOfWeekOrder(Date) == 6;
+}
+
+bool IsWeekEnd (stDate Date)
+{
+    return DayOfWeekOrder(Date) == 6 || DayOfWeekOrder(Date) == 5;
+}
+
+bool IsBusinessDay (stDate Date)
+{
+    return (!IsWeekEnd(Date));
+}
 
 bool IsValidDate (stDate Date)
 {
@@ -131,7 +152,7 @@ stDate increaseDateOneDay(stDate Date)
 
    if (IsLastDayInTheMonth(Date))
      { 
-        if (IsLastMonthInTheYear (Date))
+        if (IsLastMonthInTheYear(Date))
         {
             Date.Month = 1;
             Date.Day = 1;
@@ -153,6 +174,7 @@ stDate increaseDateOneDay(stDate Date)
 
 stDate DecreaseDateOneDay(stDate Date)
 {
+
     if(IsFirstDayInTheMonth(Date))
     {
         if(IsFirstMonthInTheYear(Date))
