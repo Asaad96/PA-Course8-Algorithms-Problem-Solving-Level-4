@@ -27,8 +27,10 @@ int  GetDifferenceInDays(stDate Date1 , stDate Date2, bool IncludeEndDay);
 int GetDifferenceInDaysWithSwap(stDate Date1, stDate Date2, bool IncludeEndDay);
 void SwapDates(stDate& Date1, stDate& Date2);
 short DayOfWeekOrder(stDate Date);
+std::string DayShortName(short DayOfWeekOrder);
 bool IsEndOfWeek(stDate Date);
 bool IsWeekEnd (stDate Date);
 bool IsBusinessDay (stDate Date);
+stDate GetSystemDate();
 
 #endif 

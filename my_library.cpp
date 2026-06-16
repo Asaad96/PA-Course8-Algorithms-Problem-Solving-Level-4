@@ -1,7 +1,9 @@
+#pragma warning(disable : 4996)
+
 #include "my_library.h"
 #include <iostream>
 #include <limits>
-
+#include <ctime>
 
 int ReadNumber (std::string Message) 
 {
@@ -70,6 +72,14 @@ short DayOfWeekOrder(stDate Date)
  
 }
 
+
+std::string DayShortName(short DayOfWeekOrder)
+{
+    std::string arrDayNames[] = {
+      "Sun","Mon","Tue","Wed","Thu","Fri","Sat" };
+ return arrDayNames[DayOfWeekOrder];
+}
+
 bool IsEndOfWeek(stDate Date)
 {
     return DayOfWeekOrder(Date) == 6;
@@ -77,6 +87,7 @@ bool IsEndOfWeek(stDate Date)
 
 bool IsWeekEnd (stDate Date)
 {
+    short DayIndex = DayOfWeekOrder(Date);
     return DayOfWeekOrder(Date) == 6 || DayOfWeekOrder(Date) == 5;
 }
 
@@ -254,4 +265,13 @@ int GetDifferenceInDaysWithSwap(stDate Date1 , stDate Date2 , bool IncludeEndDay
 
 }
 
-
+stDate GetSystemDate()
+{
+    stDate Date;
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    Date.Year = now->tm_year + 1900;
+    Date.Month = now->tm_mon + 1;
+    Date.Day = now->tm_mday;
+    return Date;
+}
