@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-// My method
+// My method but I forgot to check if the first date is weekend or not and delete it 
 // stDate CalculateVacationDays(stDate Datestart, short vacationDays)
 // {
 //  short i = 0;
@@ -27,6 +27,8 @@ using namespace std;
 //     }
 //    // NewDate = increaseDateOneDay(Datestart);
 //     return currentDate; 
+
+
 
 // Teacher's Method
 
