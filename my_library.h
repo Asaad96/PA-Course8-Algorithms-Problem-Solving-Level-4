@@ -32,5 +32,6 @@ bool IsEndOfWeek(stDate Date);
 bool IsWeekEnd (stDate Date);
 bool IsBusinessDay (stDate Date);
 stDate GetSystemDate();
+stDate CalculateVacationReturnDate(stDate Datestart, short VacationDays);
 
 #endif 
