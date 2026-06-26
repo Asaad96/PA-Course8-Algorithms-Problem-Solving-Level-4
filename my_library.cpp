@@ -88,7 +88,7 @@ bool IsEndOfWeek(stDate Date)
 bool IsWeekEnd (stDate Date)
 {
     short DayIndex = DayOfWeekOrder(Date);
-    return DayOfWeekOrder(Date) == 6 || DayOfWeekOrder(Date) == 5;
+    return (DayIndex == 5 || DayIndex == 6);
 }
 
 bool IsBusinessDay (stDate Date)
@@ -111,15 +111,16 @@ stDate ReadFullDate() {
     stDate Date;
 
     do {
+        Date.Day = ReadNumber("Please enter a Day? ");
+        Date.Month = ReadNumber("Please enter a Month? ");
+        Date.Year = ReadNumber("Please enter a Year? ");
 
-    Date.Day = ReadNumber("Please enter a Day? ");
-    Date.Month = ReadNumber("Please enter a Month? ");
-    Date.Year = ReadNumber("Please enter a Year? ");
-    if(!IsValidDate(Date))
-            { 
-                std::cout << "\nEnter a valid Date, This Date Does Not Exist in The Calendar! \n"; }
-                }
-    while (!IsValidDate(Date));
+        if (!IsValidDate(Date))
+        {
+            std::cout << "\nEnter a valid Date, This Date Does Not Exist in The Calendar! \n";
+        }
+    } while (!IsValidDate(Date));
+
     return Date;
 }
 
@@ -147,6 +148,12 @@ bool IsFirstDayInTheMonth(stDate Date)
 }
 
 
+bool Date1AfterDate2 (stDate Date1 , stDate Date2)
+{
+
+   return (!IsDate1BeforeDate2(Date1,Date2) && !IsDate1EqualDate2(Date1,Date2));
+
+}
 
 
 bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
@@ -154,6 +161,13 @@ bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
 return (Date1.Year < Date2.Year) ? true : ((Date1.Year ==
 Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month ==
 Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+}
+
+bool IsDate1EqualDate2(stDate Date1, stDate Date2)
+{
+return (Date1.Year == Date2.Year) ? ((Date1.Month ==
+Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false)
+: false;
 }
 
 
@@ -209,7 +223,7 @@ return Date;
 }
 
 
-int GetDifferenceInDays(stDate Date1 , stDate Date2 , bool IncludeEndDay = false )
+int GetDifferenceInDays(stDate Date1 , stDate Date2 , bool IncludeEndDay)
 {
  int Days = 0 ;
  while (IsDate1BeforeDate2(Date1 , Date2))
@@ -244,7 +258,7 @@ void SwapDates (stDate& Date1 , stDate& Date2)
 }
 
 
-int GetDifferenceInDaysWithSwap(stDate Date1 , stDate Date2 , bool IncludeEndDay = false )
+int GetDifferenceInDaysWithSwap(stDate Date1 , stDate Date2 , bool IncludeEndDay )
 {
  int Days = 0 ; 
  short SwapFlagValue = 1;

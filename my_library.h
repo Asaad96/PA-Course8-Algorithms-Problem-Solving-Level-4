@@ -22,9 +22,11 @@ stDate increaseDateOneDay( stDate Date);
 stDate DecreaseDateOneDay(stDate Date);
 bool IsLastMonthInTheYear (stDate Date);
 bool IsLastDayInTheMonth  (stDate Date);
+bool Date1AfterDate2 (stDate Date1 , stDate Date2); 
 bool IsDate1BeforeDate2 (stDate Date1, stDate Date2);
-int  GetDifferenceInDays(stDate Date1 , stDate Date2, bool IncludeEndDay);
-int GetDifferenceInDaysWithSwap(stDate Date1, stDate Date2, bool IncludeEndDay);
+bool IsDate1EqualDate2(stDate Date1, stDate Date2);
+int  GetDifferenceInDays(stDate Date1 , stDate Date2, bool IncludeEndDay = false);
+int GetDifferenceInDaysWithSwap(stDate Date1, stDate Date2, bool IncludeEndDay = false);
 void SwapDates(stDate& Date1, stDate& Date2);
 short DayOfWeekOrder(stDate Date);
 std::string DayShortName(short DayOfWeekOrder);
@@ -34,4 +36,4 @@ bool IsBusinessDay (stDate Date);
 stDate GetSystemDate();
 stDate CalculateVacationReturnDate(stDate Datestart, short VacationDays);
 
-#endif 
+#endif
