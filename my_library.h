@@ -4,6 +4,7 @@
 #include <string>
 
 
+enum DateStats  { Before = -1, Equal = 0, After = 1};
 
 
 struct stDate {
@@ -11,6 +12,15 @@ struct stDate {
     short Month;
     short Year;
 };
+
+
+struct stPeriod 
+{
+    stDate StartDate;
+    stDate EndDate; 
+};
+
+
 
 int ReadNumber(std::string Message = "Enter a number: ");
 bool IsLeapYear(short Year);
@@ -35,5 +45,6 @@ bool IsWeekEnd (stDate Date);
 bool IsBusinessDay (stDate Date);
 stDate GetSystemDate();
 stDate CalculateVacationReturnDate(stDate Datestart, short VacationDays);
+DateStats  CompareDates (stDate Date1 , stDate Date2);
 
 #endif

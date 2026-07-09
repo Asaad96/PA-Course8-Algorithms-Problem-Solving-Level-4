@@ -5,6 +5,8 @@
 #include <limits>
 #include <ctime>
 
+
+
 int ReadNumber (std::string Message) 
 {
     int Number;
@@ -123,6 +125,19 @@ stDate ReadFullDate() {
 
     return Date;
 }
+
+
+stPeriod ReadPeriod()
+{
+    stPeriod Period;
+    std::cout << "\nEnter Start Date\n";
+    Period.StartDate = ReadFullDate();
+    std::cout << "\nEnter End Date\n";
+    Period.EndDate = ReadFullDate();
+    return Period;
+}
+
+
 
 bool IsLastMonthInTheYear (stDate Date) 
 {
@@ -289,3 +304,16 @@ stDate GetSystemDate()
     Date.Day = now->tm_mday;
     return Date;
 }
+
+
+DateStats  CompareDates (stDate Date1 , stDate Date2)
+{
+  if(IsDate1BeforeDate2(Date1,Date2))
+      return DateStats::Before;
+  if(IsDate1EqualDate2(Date1,Date2))
+      return DateStats::Equal;
+
+  return DateStats::After;
+}
+
+
